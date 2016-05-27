@@ -8,7 +8,7 @@ install.packages("devtools")
 ```
 
 ```R
-devtools::install_github("lsgsb/shinyLi", host="github.uc.edu/api/v3", auth_token="...”)
+devtools::install_github("uc-bd2k/shinyLi")
 ```
 
 Original source for the visualizations:
