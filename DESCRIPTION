@@ -1,0 +1,15 @@
+Package: shinyLi
+Type: Package
+Title: LINCS functions for Shiny
+Version: 0.03
+Date: 2016-01-01
+Author: Michal Kouril
+Maintainer: Michal Kouril <Michal.Kouril@cchmc.org>
+Description: Adds Scatterplot, Dose Response Grid, .. for LINCS data to Shiny.
+Imports:
+    shiny (>= 0.11),
+    htmltools
+URL: https://github.uc.edu/lsgsb/shinyLi
+BugReports: https://github.uc.edu/lsgsb/shinyLi/issues
+License: GPL-3
+RoxygenNote: 5.0.1

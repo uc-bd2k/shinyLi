@@ -1,0 +1,4 @@
+cell_line	agent	log10[EC50]	Einf	HillSlope
+BT20	drugB	Inf	0	0.01
+MCF7	drugB	0.148	0.296	1.36
+XXXX	drugB	999	0.944	0.01

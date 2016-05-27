@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>  
+  <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js?ver=4.2.4'></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>
+  <link href="https://code.jquery.com/ui/1.11.4/themes/black-tie/jquery-ui.css" rel="stylesheet" />
+  <link href="dose_response_grid.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+  <div id="dose-response-grid-main2">
+    <div class="slider" style="visibility:hidden">
+      <div id="dose-response-grid-content" class="content main-content">
+        <div class="vfloat">
+          <div id="track" class="track-container">
+            <div id="toggle" class="button-bar">
+              <button>Toggle view</button>
+            </div>
+            <div class="list-container-base list-container">
+              <ul><div class="title"></div></ul>
+              <br>
+              <div class="button-bar"><button id="reset" disabled>reset</button></div>
+            </div>
+          </div> <!-- #track -->
+        </div>
+        <div class="right-panel">
+          <div id="grid" class="svg-table"></div>
+        </div>
+      </div> <!-- #dose-response-grid-content -->
+    </div> <!-- .slider -->
+   <div id="loading">
+     <div>data not loaded...</div>
+   </div>
+ </div>
+ <hr>
+ <hr>
+  <div id="dose-response-grid-main">
+    <div class="slider" style="visibility:hidden">
+      <div id="dose-response-grid-content" class="content main-content">
+        <div class="vfloat">
+          <div id="track" class="track-container">
+            <div id="toggle" class="button-bar">
+              <button>Toggle view</button>
+            </div>
+            <div class="list-container-base list-container">
+              <ul><div class="title"></div></ul>
+              <br>
+              <div class="button-bar"><button id="reset" disabled>reset</button></div>
+            </div>
+          </div> <!-- #track -->
+        </div>
+        <div class="right-panel">
+          <div id="grid" class="svg-table"></div>
+        </div>
+      </div> <!-- #dose-response-grid-content -->
+    </div> <!-- .slider -->
+   <div id="loading">
+     <div>data not loaded...</div>
+   </div>
+ </div>
+
+   <script src="dose_response_grid.js"></script>
+   <script>
+        $(function () {
+	   	// var x=Object.create(DRG);
+	   	var x=new DRG;
+		x.runLiDoseResponseGrid("error.tsv", null, null, null, ["cell_line","agent"], "1", null, "dose-response-grid-main");
+	   	var y=new DRG;
+		y.runLiDoseResponseGrid("test.tsv", null, null, null, ["cell_line","agent"], "1", null, "dose-response-grid-main2");
+
+		// runLiDoseResponseGrid("error.tsv", null, null, null, ["cell_line","agent"], "1");
+
+
+       $("#dose-response-grid-main").on("click", function(e) {
+	var phrases = [];
+	$('#dose-response-grid-main #track li.picked').each(function(){
+		phrases.push(encodeURIComponent($(this).text()));
+	});  
+         if (e.target.tagName=="path") {
+            graph_index=d3.select($(e.target).parent()[0]).data();
+            last_click=$(e.target).parent().find("title").text();
+	    if (last_click!="") alert(phrases.join(',')+", "+last_click);
+            console.log("title="+$(e.target).parent().find("title").text());
+         } else {
+            graph_index=d3.select(e.target).data();
+            last_click=$(e.target).find("title").text();
+	    if (last_click!="") alert(phrases.join(',')+", "+last_click);
+            console.log("title="+$(e.target).find("title").text());
+         }
+         // console.log("click index="+graph_index);
+         // console.log("click last_click="+last_click);
+       })
+        });
+
+   </script>
+</body>
+
+</html>
