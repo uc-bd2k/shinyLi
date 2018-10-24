@@ -1164,7 +1164,7 @@ var area0f = (function () {
 
       .style("font-weight", "bold")
 
-      .text("control (IC curve)")
+      .text("control (traditional curve)")
 
       .attr("y", -20);
 
