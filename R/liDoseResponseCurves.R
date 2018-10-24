@@ -49,7 +49,7 @@ liDoseResponseCurves <- function(anchorId) {
          
          <tr><td style="text-align:right">Maximal effect of the drug</td><td><div class="slider" id="Smax-slider"></div></td><td><div class="slider-value" id="Smax-slider-value">0.65</div></td></tr>
          
-         <tr><td style="text-align:right">on cell division (SC<sub>max</sub>)</td></tr>
+         <tr><td style="text-align:right">on cell division (S<sub>M</sub>)</td></tr>
          
          <tr><td style="text-align:right">Hill slope (h)</td><td><div class="slider"
          
